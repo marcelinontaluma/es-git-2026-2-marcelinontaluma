@@ -2,6 +2,11 @@ public class Emprestimo {
     private final Usuario usuario;
     private final Livro livro;
 
+    public double encerrar (int diasAtraso){
+        livro.devolver();
+        return calcularMulta(diasAtraso);
+    }
+
     public Emprestimo(Usuario usuario, Livro livro) {
         this.usuario = usuario;
         this.livro = livro;
