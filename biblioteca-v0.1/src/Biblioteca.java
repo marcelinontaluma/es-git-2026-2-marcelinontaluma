@@ -13,23 +13,8 @@ public class Biblioteca {
         return livro;
     }
 
-    public Usuario cadastrarUsuario(String nome, String tipo) {
-        Usuario usuario;
-        switch (tipo) {
-            case "aluno":
-                usuario = new Aluno(nome);
-                break;
-            case "professor":
-                usuario = new Professor(nome);
-                break;
-            case "comunidade":
-                usuario = new Comunidade(nome);
-                break;
-            default:
-                throw new IllegalArgumentException("Tipo de usuario desconhecido: " + tipo);
-        }
+    public void adicionarUsuario(Usuario usuario) {
         usuarios.add(usuario);
-        return usuario;
     }
 
     public List<Livro> getLivros() {
