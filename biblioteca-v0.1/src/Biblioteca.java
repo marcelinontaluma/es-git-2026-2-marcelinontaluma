@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Biblioteca {
+public class Biblioteca implements ConsultaBiblioteca, OperacoesBiblioteca {
     private final List<Livro> livros = new ArrayList<>();
     private final List<Usuario> usuarios = new ArrayList<>();
     private final List<Emprestimo> emprestimos = new ArrayList<>();
@@ -16,23 +16,23 @@ public class Biblioteca {
     public void adicionarUsuario(Usuario usuario) {
         usuarios.add(usuario);
     }
-
+    @Override
     public List<Livro> getLivros() {
         return List.copyOf(livros);
     }
-
+    @Override
     public List<Usuario> getUsuarios() {
         return List.copyOf(usuarios);
     }
-
+    @Override
     public double getTotalMultasArrecadadas() {
         return caixa.getTotal();
     }
-
+    @Override
     public boolean existeUsuario(int id) {
         return buscarUsuario(id) != null;
     }
-
+    @Override
     public String emprestar(int idUsuario, int idLivro) {
         Usuario usuario = buscarUsuario(idUsuario);
         if (usuario == null) {
@@ -52,7 +52,7 @@ public class Biblioteca {
         emprestimos.add(new Emprestimo(usuario, livro));
         return "Emprestimo realizado.";
     }
-
+    @Override
     public String devolver(int idUsuario, int idLivro, int diasAtraso) {
         if (buscarUsuario(idUsuario) == null) {
             return "Usuario nao encontrado.";

@@ -1,10 +1,11 @@
 import java.util.Scanner;
 
 public class Menu {
-    private final Biblioteca biblioteca;
+    private final ConsultaBiblioteca consulta;
+    private final OperacoesBiblioteca operacoes;
     private final Scanner sc = new Scanner(System.in);
 
-    public Menu(Biblioteca biblioteca) {
+    public Menu(ConsultaBiblioteca consulta, OperacoesBiblioteca operacoes) {
         this.biblioteca = biblioteca;
     }
 
